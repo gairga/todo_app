@@ -1,17 +1,5 @@
-<%= form_with(model: @todo, local: true) do |form| %>
+<h1>Nueva ToDo</h1>
 
+<%= render 'form' %>
 
-  <div class="input-group">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div class="input-group">
-    <%= form.label :completed %>
-    <%= form.check_box :completed %>
-  </div>
-
-  <div class="input-group">
-    <%= form.submit "Crear", class: "btn btn-warning" %>
-  </div>
-<% end %>
+<%= link_to 'Back', todos_path, class: "btn btn-warning" %>
