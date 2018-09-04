@@ -3,6 +3,11 @@ class TodosController < ApplicationController
 		@todos = Todo.all
 	end
 
+	def new
+		@product = Product.new
+	end
+
+	
 	private
 	def todo_params
 		params.require(:todo).permit(:description, :completed)
