@@ -1,0 +1,26 @@
+<h1>Todos</h1>
+
+
+<div class="well">
+
+	 <!-- Table -->
+	  <table class="table">
+	    <thead>
+	    <tr>
+	      <th>Nombre</th>
+	      <th>Precio</th>
+	    
+	    </tr>
+	  </thead>
+
+	  <tbody>
+	    <% @todos.each do |todo| %>
+	      <tr>
+	        <td><%= todo.description %></td>
+	        <td><%= todo.completed %></td>
+
+	      </tr>
+	    <% end %>
+	  </tbody>
+	  </table>
+</div>
