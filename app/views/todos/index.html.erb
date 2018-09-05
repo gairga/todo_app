@@ -1,5 +1,5 @@
-<h1>Todos</h1>
 
+<h1>Todos</h1>
 
 <div class="well">
 
@@ -7,9 +7,8 @@
 	  <table class="table">
 	    <thead>
 	    <tr>
-	      <th>Nombre</th>
-	      <th>Precio</th>
-	    
+	      <th>Tarea</th>
+	      <th>Completada¿?</th>
 	    </tr>
 	  </thead>
 
@@ -17,7 +16,17 @@
 	    <% @todos.each do |todo| %>
 	      <tr>
 	        <td><%= todo.description %></td>
-	        <td><%= todo.completed %></td>
+	        <% if todo.completed == true %>
+                <td><span class="glyphicon glyphicon-thumbs-up"></td>
+            <% else %>
+                <td><span class="glyphicon glyphicon-thumbs-down"></span></td>
+            <% end %>
+        	<td><%= link_to 'Ver', todo, class: "btn btn-primary" %></td>
+            <td><%= link_to 'Eliminar', todo, method: :delete, data: { confirm: 'Respuesta definitiva?' } , class: "btn btn-danger" %></td>
+        	<td><%= link_to 'Editar', edit_todo_path(todo), class: "btn btn-info" %></td>
+        	<td><%= link_to 'Completar', complete_todo_path(todo) , class: 'btn btn-primary'%></td>
+        	<td><%= link_to 'List', todos_list_path , class: 'btn btn-primary'%></td>
+        	            
 
 	      </tr>
 	    <% end %>
