@@ -1,34 +1,21 @@
 <h1>Todos</h1>
 
-<div class="row">
-
-	 <!-- Table -->
-	  <table class="table">
-	    <thead>
-	    <tr>
-	      <th>Completados</th>
-	      <th>NO Completados</th>
-	    </tr>
-	  </thead>
-
-	  <tbody>
-	    <% @todos.each do |todo| %>
-	      <tr>
-	        <% if todo.completed == true %>
-					<%= todo.description %> 
-					<td><span class="glyphicon glyphicon-thumbs-up"></td>
-				</div>
-            <% end %>
-
-            <% if todo.completed == false %>
-            	<%= todo.description %> 
-                <td><span class="glyphicon glyphicon-thumbs-down"></span></td>
-            <% end %>
-	      </tr>
-	    <% end %>
-	  </tbody>
-	  </table>
-</div>
+<% @todos.each do |todo| %>	
+	<div class="row">	
+		<div class="col-md-6">
+			<% if todo.completed == true %>
+				<%= todo.description %> 
+				<p>SI</p>
+			<% end %>
+		</div>
+			
+		<div class="col-md-6">
+			<% if todo.completed == false %>
+				<%= todo.description %> 
+				<p>NO</p>
+			<% end %>
+		</div>
+	</div>
+<% end %>
 
 <%= link_to 'Crear ToDo', todos_new_path, class: "btn btn-warning" %>
-
