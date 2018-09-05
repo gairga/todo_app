@@ -8,7 +8,9 @@
 	    <thead>
 	    <tr>
 	      <th>Tarea</th>
-	      <th>Completada¿?</th>
+	      <th>Estatus</th>
+	      <th>Marcar como terminada</th>
+	      <th colspan="3">Acciones</th>
 	    </tr>
 	  </thead>
 
@@ -17,16 +19,21 @@
 	      <tr>
 	        <td><%= todo.description %></td>
 	        <% if todo.completed == true %>
-                <td><span class="glyphicon glyphicon-thumbs-up"></td>
+                <td><span class="glyphicon glyphicon-thumbs-up"> Terminada</td>
             <% else %>
-                <td><span class="glyphicon glyphicon-thumbs-down"></span></td>
+                <td><span class="glyphicon glyphicon-thumbs-down"> Por Hacer</span></td>
             <% end %>
+      		<% if todo.completed == true %>
+                <td><span class="glyphicon glyphicon-ok"></span> </td>
+            <% else %>
+                <td><%= link_to 'Terminar', complete_todo_path(todo) , class: 'label label-success'%></td>
+            <% end %>
+
         	<td><%= link_to 'Ver', todo, class: "btn btn-primary" %></td>
             <td><%= link_to 'Eliminar', todo, method: :delete, data: { confirm: 'Respuesta definitiva?' } , class: "btn btn-danger" %></td>
         	<td><%= link_to 'Editar', edit_todo_path(todo), class: "btn btn-info" %></td>
-        	<td><%= link_to 'Completar', complete_todo_path(todo) , class: 'btn btn-primary'%></td>
-        	<td><%= link_to 'List', todos_list_path , class: 'btn btn-primary'%></td>
-        	            
+        	
+        	
 
 	      </tr>
 	    <% end %>
@@ -34,4 +41,6 @@
 	  </table>
 </div>
 
+<%= link_to 'List', todos_list_path , class: 'btn btn-primary'%>
+        	            
 <%= link_to 'Crear ToDo', todos_new_path, class: "btn btn-warning" %>
