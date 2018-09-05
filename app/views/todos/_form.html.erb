@@ -1,26 +1,26 @@
-<h1>Nueva Tarea</h1>
-
-  <div class="row justify-content-md-center col-md-10">
-    <div class="col-md-5">
-      <div class="row justify-content-md-center">
-      <%= form_with model: @todo, local: true do |f| %>
-        <div class="form-group col-md-10">
-          <%= f.label :description, "Tarea" %>
+<%= form_with model: @todo, local: true do |f| %>
+  <fieldset>
+    <legend>Legend</legend>
+      <div class="form-group">
+          <%= f.label :description, "Tarea", class: "col-lg-2 control-label" %>
+        <div class="col-lg-10">
           <%= f.text_field :description, class: 'form-control'%>
         </div>
-          
-        <div class="form-group col-md-10">
-          <%= f. label :completed%>
+      </div>
+
+      <div class="form-group">
+        <%= f. label :completed%>
+        <div class="col-lg-10">
           <%= f.check_box :completed, class: 'checkbox'%>
         </div>
-        
-        <div class="form-group col-md-5">
+      </div>
+          
+      <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+          <%= link_to 'Volver', todos_path, class: 'btn btn-default' %>
           <%= f.submit 'Crear ToDo', class: 'btn btn-primary' %>
         </div>
-        <div class="form-group col-md-5">
-          <%= link_to 'Volver', todos_path, class: 'btn btn-success' %>
-        </div>
-        <% end %>
       </div>
-    </div>
-  </div>
+  </fieldset>
+<% end %>
+    
